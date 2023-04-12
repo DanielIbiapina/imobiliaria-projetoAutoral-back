@@ -6,10 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev:load-envs": "dotenv -e .env.development",
-    "dev:migration:run": "npm run dev:load-envs prisma migrate deploy",
-    "dev:migration:generate": "npm run dev:load-envs prisma migrate dev",
+    "dev:migration:run": "npm run dev:load-envs npx prisma migrate deploy",
+    "dev:migration:generate": "npm run dev:load-envs npx prisma migrate dev",
     "dev:seed": "npm run dev:load-envs prisma db seed",
-    "dev": "NODE_ENV=development nodemon --watch 'src/' --exec 'ts-node -r tsconfig-paths/register ./src/server.ts' -e ts"
+    "dev": "NODE_ENV=development nodemon --watch 'src/' --exec 'ts-node -r tsconfig-paths/register ./src/server.ts' -e ts",
+    "prisma:seed": "npx prisma db seed"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
   },
   "repository": {
     "type": "git",
@@ -23,9 +27,12 @@
   },
   "homepage": "https://github.com/DanielIbiapina/imobiliaria-projetoAutoral-back#readme",
   "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
     "@types/cors": "^2.8.13",
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.17",
+    "@types/joi": "^17.2.3",
+    "@types/jsonwebtoken": "^9.0.1",
     "@types/node": "^18.15.10",
     "@types/pg": "^8.6.6",
     "eslint-import-resolver-typescript": "^3.5.3",
@@ -36,11 +43,15 @@
   "dependencies": {
     "@prisma/client": "^4.11.0",
     "app": "^0.1.0",
+    "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
+    "dayjs": "^1.11.7",
     "dotenv": "^16.0.3",
     "dotenv-expand": "^10.0.0",
     "express": "^4.18.2",
     "http-status": "^1.6.2",
+    "joi": "^17.9.1",
+    "jsonwebtoken": "^9.0.0",
     "pg": "^8.10.0",
     "prisma": "^4.11.0",
     "ts-node": "^10.9.1"

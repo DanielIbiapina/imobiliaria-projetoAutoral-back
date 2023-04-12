@@ -26,14 +26,26 @@ model Session {
 }
 
 model Property {
-  id            Int      @id @default(autoincrement())
+  id            Int            @id @default(autoincrement())
   rooms         Int
   bathrooms     Int
   parkingSpaces Int
   area          Int
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
-  address       String   @db.VarChar(255)
-  name          String   @db.VarChar(255)
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  address       String         @db.VarChar(255)
+  name          String?        @db.VarChar(255)
   image         String?
+  price         String?        @db.VarChar(255)
+  PropertyFull  PropertyFull[]
+}
+
+model PropertyFull {
+  id          Int      @id @default(autoincrement())
+  propertyId  Int
+  laundry     Int?
+  elevator    Int?
+  description String?
+  balcony     Int?
+  Property    Property @relation(fields: [propertyId], references: [id])
 }

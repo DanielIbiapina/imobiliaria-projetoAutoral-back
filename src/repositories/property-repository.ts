@@ -18,9 +18,24 @@ async function getDestaqueProperties() {
   });
 }
 
+async function getProperty(id: number) {
+  return await prisma.property.findFirst({
+    where: {
+      id,
+    },
+    include: {
+      PropertyFull: {
+        where: {
+          propertyId: id,
+        },
+      },
+    },
+  });
+}
 const propertyRepository = {
   getRecentProperties,
   getDestaqueProperties,
+  getProperty,
 };
 
 export default propertyRepository;
