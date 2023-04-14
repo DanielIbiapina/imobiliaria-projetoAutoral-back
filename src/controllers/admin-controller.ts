@@ -2,10 +2,11 @@ import { Request, Response } from "express";
 import httpStatus from "http-status";
 import adminService from "../services/admin-service";
 import propertyService from "@/services/property-service";
+import { AuthenticatedRequest } from "@/middlewares";
 
-export async function addProperty(req: Request, res: Response) {
+export async function addProperty(req: AuthenticatedRequest, res: Response) {
   try {
-    //const {userId} = req
+    const { userId } = req;
     const data = req.body.data;
     const fullData = req.body.fullData;
     await adminService.createProperty(data);

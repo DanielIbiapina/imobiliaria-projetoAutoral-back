@@ -1,12 +1,12 @@
 import { Router } from "express";
 import { addProperty } from "../controllers/admin-controller";
 
-//import { authenticateToken } from "@/middlewares";
+import { authenticateAdmin, authenticateToken } from "@/middlewares";
 
 const adminRouter = Router();
 
 adminRouter
-  //.all("/*", authenticateToken)
+  .all("/*", authenticateToken, authenticateAdmin)
   .post("/", addProperty);
 
 export { adminRouter };
