@@ -82,6 +82,60 @@ async function main() {
       },
     ],
   });
+
+  await prisma.propertyFull.createMany({
+    data: [
+      {
+        description: "dedededededadaedaedeafefea",
+        propertyId: 1,
+        laundry: 130,
+        elevator: 4,
+        balcony: 0,
+      },
+      {
+        description: "dedededededvsrvfvffedd",
+        propertyId: 2,
+        laundry: 20,
+        elevator: 0,
+        balcony: 2,
+      },
+      {
+        description: "frwggbtdtggtdtgd",
+        propertyId: 3,
+        laundry: 240,
+        elevator: 3,
+        balcony: 2,
+      },
+      {
+        description: "tdgdtgththdhdthd",
+        propertyId: 4,
+        laundry: 230,
+        elevator: 4,
+        balcony: 2,
+      },
+      {
+        description: "ffsfsfsfsefrsfrffr",
+        propertyId: 5,
+        laundry: 130,
+        elevator: 6,
+        balcony: 0,
+      },
+      {
+        description: "edeffygfjbcbffyb",
+        propertyId: 6,
+        laundry: 130,
+        elevator: 2,
+        balcony: 2,
+      },
+      {
+        description: "rsfslllvovpsocmsomocsccs",
+        propertyId: 7,
+        laundry: 130,
+        elevator: 3,
+        balcony: 2,
+      },
+    ],
+  });
 }
 
 main()

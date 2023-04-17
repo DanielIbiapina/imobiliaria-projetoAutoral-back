@@ -12,8 +12,11 @@ async function getRecentProperties() {
 async function getDestaqueProperties() {
   return await prisma.property.findMany({
     take: 1,
-    orderBy: {
+    /*orderBy: {
       createdAt: "asc",
+    },*/
+    where: {
+      id: 32,
     },
   });
 }
