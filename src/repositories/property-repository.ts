@@ -32,6 +32,7 @@ async function getProperty(id: number) {
     },
   });
 }
+
 const propertyRepository = {
   getRecentProperties,
   getDestaqueProperties,

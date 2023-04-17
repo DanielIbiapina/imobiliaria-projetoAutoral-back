@@ -2,7 +2,6 @@ import { prisma } from "@/config";
 import { Property, PropertyFull } from "@prisma/client";
 
 async function createProperty(data: CreatePropertyParams) {
-  console.log(data);
   return await prisma.property.create({
     data,
   });

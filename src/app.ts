@@ -7,6 +7,8 @@ import {
   authenticationRouter,
   adminRouter,
   propertiesRouter,
+  messagesRouter,
+  realStateDevelopmentRouter,
 } from "@/routers";
 
 loadEnv();
@@ -19,7 +21,9 @@ app
   .use("/property", propertiesRouter)
   .use("/admin", adminRouter)
   .use("/users", usersRouter)
-  .use("/auth", authenticationRouter);
+  .use("/auth", authenticationRouter)
+  .use("/messages", messagesRouter)
+  .use("/realstate-development", realStateDevelopmentRouter);
 
 export function init(): Promise<Express> {
   connectDb();

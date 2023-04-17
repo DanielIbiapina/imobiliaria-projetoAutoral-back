@@ -24,6 +24,7 @@ async function getUserOrFail(email: string): Promise<GetUserOrFailResult> {
     id: true,
     email: true,
     password: true,
+    isAdmin: true,
   });
   if (!user) throw "email or password are incorrect";
 

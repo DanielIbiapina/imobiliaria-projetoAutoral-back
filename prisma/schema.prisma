@@ -50,3 +50,31 @@ model PropertyFull {
   balcony     Int?
   Property    Property @relation(fields: [propertyId], references: [id])
 }
+
+model RealStateDevelopment {
+  id                         Int                          @id @default(autoincrement())
+  address                    String                       @db.VarChar(255)
+  name                       String                       @db.VarChar(255)
+  description                String
+  mainImage                  String
+  createdAt                  DateTime                     @default(now())
+  updatedAt                  DateTime                     @updatedAt
+  RealStateDevelopmentImages RealStateDevelopmentImages[]
+}
+
+model RealStateDevelopmentImages {
+  id                     Int                  @id @default(autoincrement())
+  realStateDevelopmentId Int
+  image                  String
+  RealStateDevelopment   RealStateDevelopment @relation(fields: [realStateDevelopmentId], references: [id])
+}
+
+model Messages {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  phone     String
+  message   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
