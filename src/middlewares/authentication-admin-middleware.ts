@@ -11,7 +11,7 @@ export async function authenticateAdmin(
 ) {
   try {
     const { userId } = req;
-    console.log(userId);
+
     const user = await prisma.user.findFirst({
       where: {
         id: userId,

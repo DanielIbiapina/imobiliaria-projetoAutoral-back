@@ -14,7 +14,6 @@ export async function addProperty(req: AuthenticatedRequest, res: Response) {
     const lastProperty = await propertyService.getRecentProperties();
 
     const propertyId = lastProperty[0].id;
-    console.log(propertyId);
     await adminService.createPropertyFull(fullData, propertyId);
     return res.status(200).send("Imóvel criado");
   } catch (error) {
