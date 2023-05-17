@@ -44,7 +44,7 @@ async function main() {
         address: "R. 1",
         name: "Lugar X",
         image:
-          "https://img3.idealista.pt/blur/WEB_LISTING-M/0/id.pro.pt.image.master/06/ef/4a/210507169.jpg",
+          "https://cdn.britannica.com/37/135437-050-A12461CC/Burj-Khalifa-world-Sheikh-Khalifah-ibn-Zayid-2010.jpg",
         price: "185.000",
       },
       {

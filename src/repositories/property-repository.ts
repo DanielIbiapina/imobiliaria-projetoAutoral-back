@@ -16,7 +16,7 @@ async function getDestaqueProperties() {
       createdAt: "asc",
     },*/
     where: {
-      id: 32,
+      id: 1,
     },
   });
 }

@@ -1,8 +1,9 @@
 import { Router } from "express";
-import { postMessage } from "@/controllers";
+import { getMessage, postMessage } from "@/controllers";
 
 const messagesRouter = Router();
 
 messagesRouter.post("/", postMessage);
+messagesRouter.get("/", getMessage);
 
 export { messagesRouter };

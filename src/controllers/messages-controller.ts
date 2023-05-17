@@ -16,3 +16,17 @@ export async function postMessage(req: Request, res: Response) {
     return res.sendStatus(500);
   }
 }
+
+export async function getMessage(req: Request, res: Response) {
+  try {
+    const messages = await messagesService.getMessages();
+    return res.status(200).send(messages);
+  } catch (error) {
+    console.log(error);
+    if (error.name === "UnauthorizedError")
+      return res.sendStatus(httpStatus.UNAUTHORIZED);
+    if (error.name === "NotFoundError")
+      return res.sendStatus(httpStatus.NOT_FOUND);
+    return res.sendStatus(500);
+  }
+}
